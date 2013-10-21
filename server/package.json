@@ -1,0 +1,16 @@
+{
+  "name": "node-notebook-api",
+  "scripts": {
+    "start": "server.js"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee-script": "latest",
+    "restify": "latest",
+    "mongoose": "latest",
+    "connect": "latest",
+    "mocha": "1.13.0",
+    "expect.js": "latest",
+    "superagent": "latest"
+  }
+}
