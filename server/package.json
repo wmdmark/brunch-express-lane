@@ -6,11 +6,13 @@
   "version": "0.0.1",
   "dependencies": {
     "coffee-script": "latest",
-    "restify": "latest",
+    "express": "3.x"
     "mongoose": "latest",
-    "connect": "latest",
     "mocha": "1.13.0",
     "expect.js": "latest",
     "superagent": "latest"
-  }
+  },
+  "scripts": {
+    "start": "coffee -w app.coffee"
+  }  
 }
