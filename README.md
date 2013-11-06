@@ -1,4 +1,5 @@
-node-notebook-api
-=================
+This code demonstrates an organized way to create an api based client/server app.
 
-An example application using Node.js and MongoDB to create a restful notetaking API
+* Server: Node.js, Express, MongoDB (via Mongoose), Passport
+* Client: Backbone.js via Grunt
+
