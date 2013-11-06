@@ -6,14 +6,17 @@ _ = require 'underscore'
 
 User = mongoose.model 'User'
 
-#
-# Show login form
-#
-exports.login = (req, res) ->
-    res.render 'users/login',
-        title: 'Login'
-        message: req.flash 'error'
-    return
+exports.auth =
+
+    login: (req, res)->
+
+    logout: (req, res)->
+        req.logout()
+        return
+
+    
+
+
 
 #
 # Logout

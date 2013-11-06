@@ -7,16 +7,15 @@ bcrypt = require 'bcrypt'
 Schema = mongoose.Schema
 
 UserSchema = new Schema
-    name:
+    first_name:
+        type: String
+        required: true
+    last_name:
         type: String
         required: true
     email:
         type: String
         required: true
-    username:
-        type: String
-        required: true
-        unique: true
     password:
         type: String
         required: true
@@ -59,9 +58,9 @@ UserSchema.methods.comparePassword = (candidatePassword, cb) ->
 
 UserSchema.statics =
     list: (cb) ->
-        this.find().sort
-            username: 1
-        .exec(cb)
+        @find()
+            .sort(last_name: 1)
+            .exec(cb)
         return
 
 User = mongoose.model 'User', UserSchema
