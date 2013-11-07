@@ -25,7 +25,8 @@
     "view-helpers": "latest",
     "less": "1.3.3",
     "moment": "latest",
-    "marked": "latest"
+    "marked": "latest",
+    "swig": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"

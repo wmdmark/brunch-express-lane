@@ -1,5 +1,9 @@
 module.exports = (app, passport, auth) ->
     
+
+    app.get "/", (req, res)->
+        res.render("index", {})
+
     # User routes
     # users = require '../app/controllers/users'
     # app.get '/login', users.login

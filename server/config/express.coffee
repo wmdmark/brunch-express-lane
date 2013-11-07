@@ -3,6 +3,7 @@ mongoStore = require('connect-mongo')(express)
 flash = require('connect-flash')
 helpers = require('view-helpers')
 path = require('path')
+swig = require('swig')
 
 module.exports = (app, config, passport) ->
     app.set('showStackError', true)
@@ -12,9 +13,12 @@ module.exports = (app, config, passport) ->
             return /json|text|javascript|css/.test(res.getHeader('Content-Type'))
         level: 9
     }))
-    
-    app.set('views', config.root + '/app/views')
-    app.set('view engine', 'jade')
+        
+    console.log "view path: #{path.join(__dirname, "../app/views/")}"
+
+    app.engine('html', swig.renderFile)
+    app.set('view engine', 'html')
+    app.set('views', path.join(__dirname, "../app/views/"));
 
     app.configure ->
         app.use(helpers(config.app.name))
@@ -38,8 +42,7 @@ module.exports = (app, config, passport) ->
 
         app.use(passport.initialize())
         app.use(passport.session())
-        #console.log "assets path: #{path.join(__dirname, '../../client/public')}" 
-        app.use(express.static(path.join(__dirname, '../assets')))
+        app.use(express.static(path.join(__dirname, '../../client/dist')))
         #app.use(require('connect-assets')())
 
         app.use(app.router)
@@ -47,6 +50,8 @@ module.exports = (app, config, passport) ->
 
     app.configure 'development', ->
         console.log 'Configuring development environment'
+        app.set('view cache', false)
+        swig.setDefaults({ cache: false })
         app.use express.errorHandler()
         app.locals.pretty = true
         return
