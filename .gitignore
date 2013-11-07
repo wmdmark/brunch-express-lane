@@ -1,15 +1,28 @@
-lib-cov
-*.seed
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
 *.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-.DS_Store
-pids
-logs
-results
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
 
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# NPM
 npm-debug.log
-node_modules
+node_modules/
+
+# Brunch folder for temporary files.
+tmp/
+client/dist
