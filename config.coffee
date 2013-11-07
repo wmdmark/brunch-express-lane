@@ -1,4 +1,7 @@
 exports.config =
+  conventions:
+    assets: /^client\/app\/assets\//
+
   paths:
     public: 'client/dist'
     watched: ['client']
@@ -6,13 +9,13 @@ exports.config =
   files:
     javascripts:
       joinTo:
-        'client/dist/js/app.js': /^client\/app/
-        'client/dist/js/vendor.js': /^client\/(bower_components|vendor)/
+        'js/app.js': /^client\/app/
+        'js/vendor.js': /^client\/bower_components/
 
     stylesheets:
-      joinTo: 'client/dist/css/app.css'
+      joinTo: 'css/app.css'
     templates:
-      joinTo: 'client/dist/js/app.js'
+      joinTo: 'js/app.js'
 
   modules:
     nameCleaner: (path) ->
