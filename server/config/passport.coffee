@@ -13,8 +13,8 @@ module.exports = (passport) ->
         done(null, obj)
 
     # Define the local auth strategy
-    passport.use new LocalStrategy (username, password, done) ->
-        User.findOne username: username, (err, user) ->
+    passport.use new LocalStrategy (email, password, done) ->
+        User.findOne email: email, (err, user) ->
             if err
                 return done err
             if !user

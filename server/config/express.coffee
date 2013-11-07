@@ -38,9 +38,9 @@ module.exports = (app, config, passport) ->
 
         app.use(passport.initialize())
         app.use(passport.session())
-
+        #console.log "assets path: #{path.join(__dirname, '../../client/public')}" 
         app.use(express.static(path.join(__dirname, '../assets')))
-        app.use(require('connect-assets')())
+        #app.use(require('connect-assets')())
 
         app.use(app.router)
         return
