@@ -1,5 +1,5 @@
 AppRouter = require("router")
-window.router = new AppRouter()
+App = require("app")
 
 # Globally capture clicks. If they are internal and not in the pass 
 # through list, route them through Backbone's navigate method.
@@ -18,9 +18,9 @@ $(document).on "click", "a[href^='/']", (event) ->
         url = href.replace(/^\//,'').replace('\#\!\/','')
 
         # Instruct Backbone to trigger routing events
-        router.navigate url, { trigger: true }
+        App.router.navigate url, { trigger: true }
 
         return false
 
-
+App.router = new AppRouter()
 Backbone.history.start(pushState: yes)
