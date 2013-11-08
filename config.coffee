@@ -1,4 +1,5 @@
 exports.config =
+  sourceMaps: false
   conventions:
     assets: /^client\/app\/assets\//
 
@@ -20,8 +21,16 @@ exports.config =
 
     stylesheets:
       joinTo: 'css/app.css'
+      order:
+        after: ['client/vendor/app.css']
     templates:
       joinTo: 'js/app.js'
+
+  overrides:
+    production:
+      optimize: true
+      sourceMaps: false
+      plugins: autoReload: enabled: false
 
   modules:
     nameCleaner: (path) ->

@@ -1,3 +1,5 @@
+require("utils/binding")
+
 AppRouter = require("router")
 App = require("app")
 

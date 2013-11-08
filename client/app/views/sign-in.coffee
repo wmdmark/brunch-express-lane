@@ -1,7 +1,5 @@
-module.exports = class HomeView extends Backbone.View
+Form = require("utils/form")
+
+module.exports = class SignInView extends Form
 
     template: require("views/templates/sign-in")
-
-    render: ->
-        @.$el.html(@template())
-        return this
