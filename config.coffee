@@ -10,7 +10,13 @@ exports.config =
     javascripts:
       joinTo:
         'js/app.js': /^client\/app/
-        'js/vendor.js': /^client\/bower_components/
+        'js/vendor.js':  /^client\/(bower_components|vendor)/
+      order:
+        before: [
+          'client/vendor/jquery-1.10.2.min.js', 
+          'client/vendor/underscore-min.js', 
+          'client/vendor/backbone-min.js',
+        ]
 
     stylesheets:
       joinTo: 'css/app.css'
