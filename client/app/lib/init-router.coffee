@@ -13,6 +13,7 @@ module.exports = ->
             controller = new klass
             throw new Error("#{controllerName} controller has no action #{action}") unless controller[action]
 
+            # TODO: this is not right
             router.oldController = router.currentController
             router.currentController = controller
             controller[action](args...)
