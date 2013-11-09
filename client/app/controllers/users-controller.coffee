@@ -1,6 +1,6 @@
 module.exports = class SessionsController extends require('lib/controller')
     new: ->
-        SignInView = require("views/sign-in")
+        SignUpView = require("views/sign-up")
         user = new User()
-        view = new SignInView(model: App.user)
+        view = new SignUpView(model: App.user)
         $(".app-views").html(view.render().el)
