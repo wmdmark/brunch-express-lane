@@ -1,7 +1,6 @@
 require("utils/binding")
-
-AppRouter = require("router")
 App = require("app")
+initRouter = require("lib/init-router")
 
 # Globally capture clicks. If they are internal and not in the pass 
 # through list, route them through Backbone's navigate method.
@@ -24,5 +23,5 @@ $(document).on "click", "a[href^='/']", (event) ->
 
         return false
 
-App.router = new AppRouter()
-Backbone.history.start(pushState: yes)
+$ ->
+    initRouter()
